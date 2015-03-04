@@ -93,6 +93,19 @@
                                             <action selector="onReloadButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jvv-Dr-RKS"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8Q-94-RA7">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="25" y="4" width="30" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="myAlertPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5ee-z1-70U"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -107,6 +120,7 @@
                                         <exclude reference="Xli-Ay-zbI"/>
                                         <exclude reference="5Kz-gC-GUc"/>
                                         <exclude reference="su8-Pd-A4w"/>
+                                        <exclude reference="t8Q-94-RA7"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="3SX-rR-hfQ"/>
@@ -121,6 +135,7 @@
                                         <include reference="Xli-Ay-zbI"/>
                                         <include reference="5Kz-gC-GUc"/>
                                         <include reference="su8-Pd-A4w"/>
+                                        <include reference="t8Q-94-RA7"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="3SX-rR-hfQ"/>
@@ -187,6 +202,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="alertButton" destination="t8Q-94-RA7" id="3vZ-MR-aVL"/>
                         <outlet property="backButton" destination="K6s-EM-yGn" id="vCy-f0-bdM"/>
                         <outlet property="forwardButton" destination="Xli-Ay-zbI" id="pvS-QZ-9ue"/>
                         <outlet property="stopButton" destination="5Kz-gC-GUc" id="rD8-ts-thR"/>

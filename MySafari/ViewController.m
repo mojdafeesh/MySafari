@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UIButton *alertButton;
 
 @end
 
@@ -75,6 +76,21 @@
 
 - (IBAction)onReloadButtonPressed:(UIButton *)sender {
     [self.webView reload];
+}
+
+- (IBAction)myAlertPressed:(UIButton *)sender {
+//    + (instancetype)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(UIAlertControllerStyle)preferredStyle;
+//    
+//    - (void)addAction:(UIAlertAction *)action;
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Alert"
+                                  message:@"Coming Soon!"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
+ 
 }
 
 @end
