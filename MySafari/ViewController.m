@@ -26,6 +26,7 @@
     NSURL *url = [NSURL URLWithString: fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest: requestObj];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,11 +37,14 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)urlTextField {
     
     //NSString *fullURL = urlTextField.text;
-    NSString *fullURL =[NSString stringWithFormat: @"http://www.%@", urlTextField.text];
+    NSString *fullURL =[NSString stringWithFormat: @"http://%@", urlTextField.text];
     NSURL *url = [NSURL URLWithString: fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest: requestObj];
-   
+    
+    //adds a delete button on the address bar
+    self.urlTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    
     
     return YES;
     
@@ -50,6 +54,8 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     
+    
+
     //self.backButton.enabled = YES;
     //forwardButton.enabled = NO;
     
@@ -60,7 +66,9 @@
     
     self.backButton.enabled = (self.webView.canGoBack);
     self.forwardButton.enabled = (self.webView.canGoForward);
+
 }
+
 
 - (IBAction)onBackButtonPressed:(UIButton *)sender {
     [self.webView goBack];
@@ -84,13 +92,29 @@
 //    - (void)addAction:(UIAlertAction *)action;
     
     UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Alert"
+                                  alertControllerWithTitle:@"All New Stuff"
                                   message:@"Coming Soon!"
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     [self presentViewController:alert animated:YES completion:nil];
-
  
 }
+
+-(void)updateAddress:(NSURLRequest *)request
+{
+    NSURL* url= [request mainDocumentURL];
+    NSString* absoluteString = [url absoluteString];
+    self.urlTextField.text = absoluteString;
+}
+
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    [self updateAddress:request];
+    return YES;
+}
+
+
+
 
 @end
