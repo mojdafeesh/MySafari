@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,9 +21,6 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTc-9H-XhG">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="491"/>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="KvX-VX-lZh"/>
                                 </connections>
@@ -31,9 +29,6 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="28" y="28" width="348" height="30"/>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="q3J-8l-giP"/>
                                 </connections>
@@ -47,9 +42,6 @@
                                         <state key="normal" title="&lt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="101" y="40" width="46" height="41"/>
-                                        </variation>
                                         <connections>
                                             <action selector="onBackButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Lal-R0-Fdq"/>
                                         </connections>
@@ -60,9 +52,6 @@
                                         <state key="normal" title="&gt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="266" y="42" width="46" height="39"/>
-                                        </variation>
                                         <connections>
                                             <action selector="onForwardButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="X7r-r0-Tm1"/>
                                         </connections>
@@ -145,6 +134,13 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvl-9y-Drt">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -154,17 +150,21 @@
                             <constraint firstAttribute="trailingMargin" secondItem="sTc-9H-XhG" secondAttribute="trailing" constant="-16" id="ZFZ-Ih-nq9"/>
                             <constraint firstItem="sTc-9H-XhG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="aHd-wo-NFj"/>
                             <constraint firstItem="brK-nx-4ae" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="c3t-R8-AKl"/>
+                            <constraint firstItem="Yvl-9y-Drt" firstAttribute="top" secondItem="B6G-FI-QM1" secondAttribute="bottom" constant="8" id="cAf-Lz-u92"/>
                             <constraint firstAttribute="trailingMargin" secondItem="B6G-FI-QM1" secondAttribute="trailing" constant="8" id="j74-mh-LiH"/>
                             <constraint firstItem="B6G-FI-QM1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="k7G-5r-HD8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="brK-nx-4ae" secondAttribute="trailing" constant="-16" id="ldb-40-IdK"/>
                             <constraint firstItem="B6G-FI-QM1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="uDd-pM-Nha"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sTc-9H-XhG" secondAttribute="bottom" id="v7g-UC-H1v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yvl-9y-Drt" secondAttribute="trailing" constant="8" id="yWL-pk-y2H"/>
+                            <constraint firstItem="Yvl-9y-Drt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="z8D-6h-Bso"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="sTc-9H-XhG"/>
                                 <exclude reference="B6G-FI-QM1"/>
                                 <exclude reference="brK-nx-4ae"/>
+                                <exclude reference="Yvl-9y-Drt"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="R6L-vY-HGt"/>
@@ -173,6 +173,9 @@
                                 <exclude reference="j74-mh-LiH"/>
                                 <exclude reference="k7G-5r-HD8"/>
                                 <exclude reference="uDd-pM-Nha"/>
+                                <exclude reference="cAf-Lz-u92"/>
+                                <exclude reference="yWL-pk-y2H"/>
+                                <exclude reference="z8D-6h-Bso"/>
                                 <exclude reference="Lj9-xa-hRf"/>
                                 <exclude reference="c3t-R8-AKl"/>
                                 <exclude reference="ldb-40-IdK"/>
@@ -185,6 +188,7 @@
                                 <include reference="sTc-9H-XhG"/>
                                 <include reference="B6G-FI-QM1"/>
                                 <include reference="brK-nx-4ae"/>
+                                <include reference="Yvl-9y-Drt"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="R6L-vY-HGt"/>
@@ -193,6 +197,9 @@
                                 <include reference="j74-mh-LiH"/>
                                 <include reference="k7G-5r-HD8"/>
                                 <include reference="uDd-pM-Nha"/>
+                                <include reference="cAf-Lz-u92"/>
+                                <include reference="yWL-pk-y2H"/>
+                                <include reference="z8D-6h-Bso"/>
                                 <include reference="Lj9-xa-hRf"/>
                                 <include reference="c3t-R8-AKl"/>
                                 <include reference="ldb-40-IdK"/>
@@ -204,6 +211,7 @@
                     <connections>
                         <outlet property="alertButton" destination="t8Q-94-RA7" id="3vZ-MR-aVL"/>
                         <outlet property="backButton" destination="K6s-EM-yGn" id="vCy-f0-bdM"/>
+                        <outlet property="currentPageTitle" destination="Yvl-9y-Drt" id="4zr-K0-smj"/>
                         <outlet property="forwardButton" destination="Xli-Ay-zbI" id="pvS-QZ-9ue"/>
                         <outlet property="stopButton" destination="5Kz-gC-GUc" id="rD8-ts-thR"/>
                         <outlet property="urlTextField" destination="B6G-FI-QM1" id="SlE-qP-6pN"/>
@@ -212,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="465" y="376"/>
+            <point key="canvasLocation" x="510" y="362"/>
         </scene>
     </scenes>
 </document>

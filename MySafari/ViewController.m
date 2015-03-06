@@ -8,13 +8,14 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <UIWebViewDelegate, UITextFieldDelegate>
+@interface ViewController () <UIWebViewDelegate, UITextFieldDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *alertButton;
+@property (weak, nonatomic) IBOutlet UILabel *currentPageTitle;
 
 @end
 
@@ -45,30 +46,32 @@
     //adds a delete button on the address bar
     self.urlTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
-    
     return YES;
     
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    
-    
+  
 
     //self.backButton.enabled = YES;
-    //forwardButton.enabled = NO;
-    
+    //self.forwardButton.enabled = NO;
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     self.backButton.enabled = (self.webView.canGoBack);
+    
     self.forwardButton.enabled = (self.webView.canGoForward);
-
+    
+    NSString *currentPageTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.currentPageTitle.text = currentPageTitle;
+    
+    [self.webView.scrollView setDelegate:self];
+    
 }
-
 
 - (IBAction)onBackButtonPressed:(UIButton *)sender {
     [self.webView goBack];
@@ -114,7 +117,9 @@
     return YES;
 }
 
-
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+}
 
 
 @end
